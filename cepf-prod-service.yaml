@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: cepf-prod-service
+spec:
+  template:
+    spec:
+      containers:
+      - image: us-east1-docker.pkg.dev/qwiklabs-gcp-01-f820141f45bf/cepf-repo/app

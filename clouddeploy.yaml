@@ -1,0 +1,32 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: cepf-run-app-pipeline
+description: main application pipeline
+serialPipeline:
+  stages:
+  - targetId: cepf-dev-service
+    profiles: [dev]
+  - targetId: cepf-prod-service
+    profiles: [prod]
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: cepf-dev-service
+description: Cloud Run development service
+run:
+  location: projects/qwiklabs-gcp-01-f820141f45bf/locations/us-east1
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: cepf-prod-service
+description: Cloud Run production service
+run:
+  location: projects/qwiklabs-gcp-01-f820141f45bf/locations/us-east1
+
+
+   

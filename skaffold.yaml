@@ -1,0 +1,15 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+metadata: 
+  name: deploy-run-cepf
+profiles:
+- name: dev
+  manifests:
+    rawYaml:
+    - cepf-dev-service.yaml
+- name: prod
+  manifests:
+    rawYaml:
+    - cepf-prod-service.yaml
+deploy:
+  cloudrun: {}
